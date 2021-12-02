@@ -1,0 +1,14 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <app-custom-counter
+    [increment]="10"
+    formControlName="quantity"
+  ></app-custom-counter>
+
+  <hr />
+  <button type="submit">Envoyer</button>
+
+  errors = {{ form.get("quantity")?.errors | json }} <br />
+  dirty = {{ form.get("quantity")?.dirty }} <br />
+  touched = {{ form.get("quantity")?.touched }} <br />
+  valid = {{ form.get("quantity")?.valid }}
+</form>
