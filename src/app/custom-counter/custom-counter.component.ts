@@ -71,9 +71,15 @@ export class CustomCounterComponent implements ControlValueAccessor {
     }
   }
 
+  /*
+  La méthode validate() sera appelée avec l'instance de FormControl lorsque la valeur du contrôle change.
+  Lorsqu'elle est appelée, nous vérifions la valeur du contrôle actuel par rapport à la réponse à la question.
+  Si elle ne correspond pas, nous retournons un objet d'erreur, qui marquera le contrôle actuel comme invalide.
+  */
   validate(control: AbstractControl): ValidationErrors | null {
     const counter = control.value;
     if (counter <= 0) {
+      // envoi une erreur si <= 0
       return {
         mustBePositive: {
           counter,
